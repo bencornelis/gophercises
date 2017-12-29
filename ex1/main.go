@@ -50,14 +50,14 @@ func main() {
 		questionNumber := 1
 
 		for q := range questionChan {
-            fmt.Printf("Question %d:\n", questionNumber)
-            fmt.Println(q)
+            		fmt.Printf("Question %d:\n", questionNumber)
+            		fmt.Println(q)
 
-            a, _ := reader.ReadString('\n')
+            		a, _ := reader.ReadString('\n')
 
-            answerChan <- a
-            questionNumber += 1
-        }
+			answerChan <- a
+			questionNumber += 1
+        	}
 	}()
 
 	correctCount := 0
