@@ -41,9 +41,9 @@ func main() {
 
 	questionChan := make(chan string)
 	answerChan := make(chan string)
-    timeUpChan := time.After(time.Duration(timeLimit) * time.Second)
+    	timeUpChan := time.After(time.Duration(timeLimit) * time.Second)
 
-    defer func() { close(questionChan) }()
+    	defer func() { close(questionChan) }()
 
 	go func() {
 		reader := bufio.NewReader(os.Stdin)
