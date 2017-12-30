@@ -41,23 +41,23 @@ func main() {
 
 	questionChan := make(chan string)
 	answerChan := make(chan string)
-    timeUpChan := time.After(time.Duration(timeLimit) * time.Second)
+    	timeUpChan := time.After(time.Duration(timeLimit) * time.Second)
 
-    defer func() { close(questionChan) }()
+    	defer func() { close(questionChan) }()
 
 	go func() {
 		reader := bufio.NewReader(os.Stdin)
 		questionNumber := 1
 
 		for q := range questionChan {
-            fmt.Printf("Question %d:\n", questionNumber)
-            fmt.Println(q)
+            		fmt.Printf("Question %d:\n", questionNumber)
+            		fmt.Println(q)
 
-            a, _ := reader.ReadString('\n')
+            		a, _ := reader.ReadString('\n')
 
-            answerChan <- a
-            questionNumber += 1
-        }
+			answerChan <- a
+			questionNumber += 1
+        	}
 	}()
 
 	correctCount := 0
